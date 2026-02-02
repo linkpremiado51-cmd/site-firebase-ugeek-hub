@@ -101,7 +101,7 @@
       window.registrarInteracao = async (docId, tipoAcao) => {
           try {
               const vid = getVisitorId();
-              const ref = doc(db, "chainsaw_man", docId, "visitantes", vid);
+              const ref = doc(db, "yahoou_i_geek/animes_filmes_series_games_noticias/chainsaw_man", docId, "visitantes", vid);
               await setDoc(ref, {
                   lastActive: serverTimestamp(),
                   actions: arrayUnion({ type: tipoAcao, ts: Date.now() })
@@ -182,14 +182,14 @@
 
       async function incrementarVisualizacao(idNoticia) {
         try {
-          const noticiaRef = doc(db, "chainsaw_man", idNoticia);
+          const noticiaRef = doc(db, "yahoou_i_geek/animes_filmes_series_games_noticias/chainsaw_man", idNoticia);
           await updateDoc(noticiaRef, { visualizacoes: increment(1) });
         } catch(err) {}
       }
 
       window.curtirNoticia = async (idNoticia) => {
         try {
-          const noticiaRef = doc(db, "chainsaw_man", idNoticia);
+          const noticiaRef = doc(db, "yahoou_i_geek/animes_filmes_series_games_noticias/chainsaw_man", idNoticia);
           await updateDoc(noticiaRef, { curtidas: increment(1) });
         } catch(err) {}
       };
@@ -346,7 +346,7 @@
       }
 
       function carregarTudoRealTime() {
-        onSnapshot(collection(db, "chainsaw_man"), (snapshot) => {
+        onSnapshot(collection(db, "yahoou_i_geek/animes_filmes_series_games_noticias/chainsaw_man"), (snapshot) => {
           todasAsNoticias = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           todasAsNoticias.sort((a, b) => (a.ordem || 999) - (b.ordem || 999));
           if(todasAsNoticias.length > 0) document.getElementById('novo-artigo-titulo').innerText = todasAsNoticias[0].titulo;
