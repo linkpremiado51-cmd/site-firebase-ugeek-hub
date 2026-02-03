@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "anigeeknews"
-  }
+  },
+  "targets": {
+    "anigeeknews": {
+      "hosting": {
+        "ugeek-hub": [
+          "ugeek-hub"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
