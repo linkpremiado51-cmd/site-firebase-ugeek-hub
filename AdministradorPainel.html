@@ -599,7 +599,7 @@
             await setDoc(doc(db, col, id), dados, { merge: true });
             setLoader(false); mostrarStatus("SALVO NA NUVEM!", "var(--success)");
             carregarListaCloud();
-        } catch (e) { setLoader(false); alert("Erro ao salvar"); }
+        } catch (e) { setLoader(false); alert("Erro ao salvar verifique se há coleção ativa"); }
     };
 
     // --- FUNÇÃO DE ANALYTICS (NOVA) ---
